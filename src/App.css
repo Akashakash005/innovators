@@ -1,0 +1,737 @@
+/* Base Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fcf6f6; 
+  line-height: 1.6; 
+}
+
+/* General Header Styling */
+header {
+  max-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Logo and Brand Name */
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: invert(1);
+}
+
+header .logo h2 {
+  margin-left: 0.5rem;
+  font-size: 2rem; /* Default font size */
+  font-weight: 700;
+  color: #703cbf;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(90deg, #713d8a, #a51b24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Navigation Links */
+header nav {
+  padding-right: 10px;
+  display: none; /* Hidden by default for mobile */
+  margin-left: auto; /* Pushes nav to the right */
+}
+
+@media (min-width: 900px) {
+  header nav {
+    display: flex;
+    gap: 2.5rem; /* Space between nav links */
+  }
+
+  header nav a {
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* Default text color */
+    transition: color 0.3s; /* Smooth transition */
+  }
+
+  header nav a:hover {
+    color: #0f0; /* Change color on hover */
+  }
+
+  header .logo {
+    display: flex;
+    align-items: center; /* Center logo vertically */
+  }
+
+  header .logo h2 {
+    margin-left: 0.5rem;
+    font-size: 1.5rem; /* Adjusted size for visibility */
+  }
+}
+
+/* Mobile Styles for h2 */
+@media (max-width: 899px) {
+  header .logo h2 {
+    font-size: 1.2rem; /* Smaller font size for mobile */
+  }
+  header .contact-button button{
+    display: none;
+  }
+
+}
+
+header nav a {
+  color: #4b5563;
+  text-decoration: none;
+  font-weight: 500; /* Add font weight */
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: #1f2937;
+}
+
+/* Contact Button */
+header .contact-button {
+  display: flex;
+  gap: 1rem;
+}
+
+header .contact-button button {
+  padding: 0.5rem 1.2rem;
+  background-color: #573a3a;
+  color: #f9f4f4;
+  border: 2px solid #573a3a;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+header .contact-button button:hover {
+  background-color: #f5f5f8;
+  color: rgb(102, 65, 65);
+  border-color: rgb(102, 65, 65);
+}
+
+
+
+
+.hero {
+  background: url('../public/images/cool-background.png') no-repeat center center/cover;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* Ensures any overlay or transform stays within bounds */
+  /* Removed hover transition effect */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  
+  background: rgba(0, 0, 0, 0.1); /* Increased opacity for better contrast */
+  /* Places the overlay behind the text */
+}
+
+/* Removed hover effect on hero */
+.hero h1,
+.hero p {
+  position: relative; /* Keeps text above the overlay */
+  z-index: 2; /* Ensures text is above the overlay */
+}
+
+.hero h1 {
+  font-size: 2.5rem; /* Adjusts heading size */
+  margin: 0.5em 0; /* Adds spacing for readability */
+}
+
+.hero p {
+  font-size: 1.2rem; /* Sets paragraph size */
+  max-width: 700px; /* Limits width for readability */
+  margin: 0 auto; /* Centers the paragraph block */
+} 
+
+
+
+.cta-button {
+  margin-top: 20px;
+  display: inline-block; /* Ensures the button behaves like a block element */
+  padding: 12px 24px; /* Adds padding */
+  background-color: #f2f0ed; /* Button background color */
+  color: #573a3a; /* Button text color */
+  font-size: 1rem; /* Button font size */
+  font-weight: bold; /* Bold button text */
+  border: none; /* No border */
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  text-align: center; /* Centers text */
+  text-decoration: none; /* No underline */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+/* Hover effect for CTA button */
+.cta-button:hover {
+  background-color: #dca037; /* Darker purple on hover */
+  transform: scale(1.05); /* Slightly enlarges the button */
+color: whitesmoke;
+}
+
+/* Active state */
+.cta-button:active {
+  transform: scale(0.95); /* Shrinks the button slightly when pressed */
+}
+
+
+/* Our Approach Section */
+.our-approach {
+  background-color: #f9f9f9; /* Light background color */
+  padding: 10px 20px; /* Padding for spacing */
+  display: flex; /* Flex layout for side-by-side alignment */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center content */
+  gap: 40px; /* Space between title and paragraph */
+  max-width: 1000px; /* Limit width for readability */
+  margin: 0 auto; /* Center align section */
+  text-align: left; /* Align text to the left */
+  border-bottom: 2px solid #ddd;
+}
+
+/* Our Approach Heading */
+.our-approach h2 {
+  font-size: 2.5rem; /* Large font size */
+  color: #333; /* Dark color */
+  font-weight: bold; /* Bold font */
+  text-transform: uppercase; /* Uppercase letters */
+  letter-spacing: 1.2px; /* Letter spacing */
+  flex: 1; /* Take up available space */
+}
+
+/* Our Approach Paragraph */
+.our-approach p {
+  font-size: 1.1rem; /* Standard font size */
+  color: #666; /* Gray text color */
+  line-height: 1.6; /* Increase line height for readability */
+  flex: 2; /* Wider than the title */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .our-approach {
+    flex-direction: column; /* Stack elements vertically */
+    text-align: center; /* Center text on mobile */
+    gap: 20px; /* Reduced gap for mobile */
+  }
+
+  .our-approach h2,
+  .our-approach p {
+    flex: unset; /* Remove flex-grow for stacking */
+    width: 100%; /* Optional: Ensure full width for better alignment */
+  }
+}
+
+/* Services Section */
+/* Services Section */
+/* Container for our services */
+.our_services {
+  text-align: center; /* Center align the heading */
+  padding: 20px 0; /* Add top and bottom padding */
+}
+
+/* Styling for H2 */
+.our_services h2 {
+  font-size: 2.5rem; /* Large font size */
+  color: #333; /* Dark text color */
+  text-transform: uppercase; /* Make text uppercase */
+  letter-spacing: 1.5px; /* Add spacing between letters */
+  font-weight: bold; /* Make the text bold */
+  margin-bottom: 30px; /* Space below the heading */
+  
+  /* Add underline effect */
+  padding-bottom: 10px; /* Padding below the text */
+}
+
+.services {
+  justify-content: center; /* Center the service cards */
+  display: flex; /* Use flexbox for side-by-side alignment */
+  gap: 8px; /* Small gap between cards */
+  padding-left: 15%; /* Add left padding */
+  padding-right: 15%; /* Add right padding */
+}
+
+/* Service Card Styles */
+.service-card {
+  position: relative; /* Position for absolute child elements */
+  height: 600px; /* Fixed height */
+  width: 200px; /* Initial width for larger screens */
+  overflow: hidden; /* Hide overflowing content */
+  border-radius: 100px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); /* Shadow for card */
+  transition: transform 0.3s; /* Smooth transform transition */
+  cursor: pointer; /* Pointer cursor */
+  display: flex;
+  flex-direction: column; /* Stack title vertically */
+  justify-content: flex-end; /* Start from bottom */
+}
+
+/* Expanded and collapsed states */
+.service-card.expanded {
+  width: 500px; /* Expanded width for larger screens */
+}
+
+/* Image Style */
+.service-image {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Cover image */
+  transition: opacity 0.3s; /* Fade effect */
+}
+
+/* Service Content */
+.service-info {
+  position: absolute;
+  bottom: 0; /* Position at the bottom */
+  left: 0;
+  right: 0;
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease; /* Transition for hover effect */
+}
+
+/* Service Description: Always show if card is expanded */
+.service-card.expanded .service-description {
+  opacity: 1; /* Show description when expanded */
+}
+
+.service-card.expanded .service-title {
+  opacity: 0; /* Hide title on expand */
+}
+
+/* Show description on hover */
+.service-card:hover .service-info {
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+}
+
+/* Service Title */
+.service-title {
+  margin: 0; /* No margin */
+  transform: rotate(270deg); /* Rotate title */
+  white-space: nowrap; /* Prevent wrapping */
+  opacity: 1; /* Title should always be visible */
+  color: rgb(254, 250, 250); /* Title color */
+  font-size: 220%; /* Increase font size to fill the card */
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  height: 100%; /* Full height of the card */
+}
+
+/* Service Description */
+.service-info .service-description {
+  opacity: 0;
+  font-size: 1.5rem;
+  text-align: justify;
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  position: absolute;
+  z-index: 1;
+  transition: opacity 0.5s ease-in, opacity 0.1s ease-out;
+}
+
+/* Show description on hover and hide title */
+.service-card:hover .service-description {
+  opacity: 1;
+}
+
+.service-card:hover .service-title {
+  opacity: 0; /* Ensure it's fully visible */
+}
+
+/* Default style: Hide hover-title by default */
+.service-info .hover-title {
+  white-space: nowrap;
+  opacity: 0; /* Hidden initially */
+  color: rgb(254, 250, 250);
+  font-size: 1.7rem;
+  display: block;
+  height: 100%;
+  max-width: fit-content;
+  position: absolute;
+  top: 10px; /* Position at top */
+  transition: opacity 0.3s ease;
+  z-index: 3; /* Ensure it's above description */
+}
+
+/* Show hover-title only when the card is expanded */
+.service-card.expanded .hover-title {
+  opacity: 1; /* Show when expanded */
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .services {
+    padding-left: 0; /* Remove left padding for mobile */
+    padding-right: 0; /* Remove right padding for mobile */
+    flex-direction: column; /* Stack cards vertically */
+  }
+
+  .service-card {
+    width: 100%; /* Full width on mobile */
+    min-height: auto; /* Allow height to adjust for content */
+    cursor: default; /* Change cursor to default */
+  }
+
+  .service-info {
+    opacity: 1; /* Ensure service info is visible */
+  }
+
+  /* Ensure all cards are expanded on mobile */
+  .service-card.expanded {
+    width: 100%; /* Full width for expanded state */
+  }
+
+  .service-title {
+    display: none; /* Hide the service title on mobile */
+  }
+
+  .service-card .service-description {
+    opacity: 1; /* Show description by default */
+  }
+
+  /* Show hover-title by default on mobile */
+  .hover-title {
+    opacity: 1; /* Ensure it's visible */
+    display: block; /* Show as a block element */
+  }
+
+  /* Ensure the hover-title is visible regardless of hover state */
+  .service-card .hover-title {
+    opacity: 1; /* Make sure it's visible */
+  }
+}
+
+
+/* Centering the box */
+.box-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+/* Main Card */
+.call-to-action-card {
+  background: url('../public/images/cool-background-2.png') no-repeat center center/cover; /* purple */
+  color: #fff;
+  border-radius: 25px;
+  padding: 5%;
+  min-height: 300px;
+  max-width: 60%;
+  width: 100%;
+}
+
+/* Content layout */
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left-content {
+  max-width: 40%;
+  padding: 2rem;
+}
+
+.right-content {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+
+/* Heading and Paragraph */
+.heading {
+  font-size: 2rem; /* 80% of the left content */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.paragraph {
+  font-size: 1rem;
+  text-align: justify;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: medium;
+  margin-bottom: 0.5rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #6b7280; /* gray border */
+  border-radius: 8px;
+  padding: 0.5rem;
+  background-color: #fff;
+}
+
+.input-group img {
+  margin-right: 0.5rem;
+}
+
+.input-group input,
+.form-group input {
+  background: transparent;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #333;
+}
+
+.right-content input,
+.right-content .input-group {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Submit Button */
+.submit-button {
+  background-color: #FF6F61; /* lighter purple */
+  color: #573a3a;
+  font-weight: bold;
+  padding: 0.75rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 100%; /* limits button width on larger screens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #FF8A65; /* darker purple */
+  color: whitesmoke;
+}
+/* Style for the textarea */
+textarea {
+  width: 100%; /* Full width of the parent */
+  padding: 10px; /* Padding for comfort */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color */
+  resize: none; /* Prevent resizing */
+  font-size: 1rem; /* Font size for readability */
+  color: #333; /* Text color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add slight shadow for depth */
+}
+
+/* Focus styles */
+textarea:focus {
+  outline: none; /* Remove default outline on focus */
+  box-shadow: 0 0 5px rgba(0, 115, 255, 0.5); /* Optional: highlight on focus */
+}
+
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+.box-wrapper{
+  display: block;
+  width: 100%;
+}
+.call-to-action-card{
+  max-width: 90%;
+}
+
+  .content-wrapper {
+    flex-direction: column; /* Stack content vertically */
+  padding: 20px;
+  }
+
+  .left-content{
+    max-width: 100%; /* Full width on mobile */
+    width: 100%; /* Full width on mobile */
+    padding:0; /* Optional: Add padding for spacing */
+ 
+  }
+  .right-content {
+    max-width: 100%; /* Full width on mobile */
+    width: 100%; /* Full width on mobile */
+      }
+}
+
+/* Desktop Layout */
+@media (min-width: 900px) {
+  .left-content {
+    width: 50%;
+  }
+  .right-content {
+    width: 50%;
+  }
+}
+
+
+
+/* Testimonials Styles */
+.testimonials blockquote {
+  font-style: italic;
+  border-left: 4px solid #ff5722;
+  padding-left: 20px;
+  margin: 20px 0;
+}
+
+
+.footer {
+  background-color: #0f0e0e;
+  padding: 1.5rem 1.5rem; /* Vertical padding */
+  color: #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+   /* Ensure footer takes full width */
+  margin: 0; /* Reset margin */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-footer {
+  flex: 0 0 30%; /* Left footer takes 30% of the width */
+  padding-right: 30px; /* Padding to separate from right footer */
+  max-width: 30%;
+}
+
+.right-footer {
+  flex: 1; /* Right footer takes the remaining space */
+  display: flex;
+  justify-content: space-between; /* Distribute space evenly */
+  align-items: flex-start; /* Align items to the start */
+}
+
+/* Ensure each section in right-footer has some margin */
+.footer-services, .footer-contact, .footer-social {
+  margin-right: 20px; /* Space between each section */
+}
+
+/* Prevent margin on the last item to avoid extra space */
+.footer-social {
+  margin-right: 0; /* Remove margin from the last section */
+}
+
+.footer-contact a {
+  color: white; /* Set the link color to white */
+  display: flex; /* Make the link a flex container */
+  align-items: center; /* Center icon and text vertically */
+text-decoration: none;
+}
+
+.footer-contact a:hover {
+  color: #cddef7; /* Change color on hover for better visibility */
+}
+.footer-contact a span {
+  margin-left: 0.5rem; /* Add space between the icon and text */
+}
+
+/* Adjust icon color for white */
+.footer-contact i {
+  color: white; /* Ensure the icon is also white */
+}
+
+/* Ensure the color for the social media links is white */
+.footer-social a {
+  color: white; /* Set social media links to white */
+}
+
+/* Hover color for social media links */
+.footer-social a:hover {
+  color: #2a77ec; /* Change hover color for social media */
+}
+
+
+/* Styles for About, Services, Contact, and Social Sections */
+.footer-about {
+  text-align: justify; /* Align text to the left */
+}
+
+.footer-services ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-social .social-links {
+  display: flex;
+  gap: 1rem; /* Space between social links */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column; /* Stack footer sections vertically */
+    align-items: center; /* Center align for mobile */
+    text-align: center; /* Center text alignment for all footer content */
+  }
+
+  .footer-links {
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center align links on mobile */
+  }
+
+  .left-footer {
+    width: 100%; /* Full width on mobile */
+    padding-right: 0; /* Remove padding on mobile */
+        max-width: 100%;
+  }
+  .footer-about {
+    text-align: center; /* Align text to the left */
+  }
+  
+
+  .right-footer {
+    width: 100%; /* Full width on mobile */
+    flex-direction: column; /* Stack right footer sections vertically on mobile */
+    align-items: center; /* Center align items on mobile */
+    text-align: center; /* Center text for right footer */
+  }
+
+  /* Optionally center each section in right-footer */
+  .footer-services, .footer-contact, .footer-social {
+    margin: 0; /* Reset margin for uniform spacing */
+  }
+}
