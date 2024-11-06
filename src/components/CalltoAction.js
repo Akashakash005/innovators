@@ -56,7 +56,7 @@ const ContactForm = () => {
           <div className="right-content">
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="from_name">Your Name *</label>
+                <label htmlFor="from_name"> Name *</label>
                 <div className="input-group">
                   <input
                     id="from_name"

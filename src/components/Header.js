@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header>
       <div className="logo">
-        <img alt="Innovator's Nexus Logo" src="/innovator's_nexus_logo.png" />
+        <img alt="Innovator's Nexus Logo" src="/innovator_s_nexus_logo.png" />
         <h2>Innovator's Nexus</h2>
       </div>
       <nav>

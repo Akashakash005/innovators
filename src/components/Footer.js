@@ -28,15 +28,15 @@ const Footer = () => (
         </div>
         <div className="footer-contact">
           <h4>Contact</h4>
-          <p>info@innovatorsnexus.com</p>
+          {/* <p>info@innovatorsnexus.com</p> */}
           <a
-            href="https://wa.me/8870105454"
+            href="https://wa.me/9488026106"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center text-white hover:text-green-700"
           >
             <i className="fab fa-whatsapp"></i>
-            <span className="ml-2">8870105454</span>
+            <span className="ml-2">9488026106</span>
           </a>
           <a
             href="mailto:youremail@example.com"
@@ -49,10 +49,16 @@ const Footer = () => (
           </a>
         </div>
         <div className="footer-social">
-          <p>Follow Us:</p>
+          <h4>Follow Us:</h4>
           <div className="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
+            <a
+              href="https://www.facebook.com/share/sy8QLBfCHZUq3Bb5/?mibextid=LQQJ4d"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Facebook
+            </a>
+            <a>Twitter</a>
             <a
               href="https://www.instagram.com/innovators__nexus"
               target="_blank"

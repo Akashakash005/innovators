@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import ServiceCard from "./ServiceCard"; // Adjust path as needed
 
 const Services = () => {
-  const [expandedIndex, setExpandedIndex] = useState(0); // Default expanded card
-
   const services = [
     {
       title: "Social Media Management",
@@ -37,10 +35,6 @@ const Services = () => {
     },
   ];
 
-  const handleHover = (index) => {
-    setExpandedIndex(index); // Set the expanded card on hover
-  };
-
   return (
     <div className="our_services">
       <h2>services we provide</h2>;
@@ -51,8 +45,6 @@ const Services = () => {
             title={service.title}
             description={service.description}
             imgSrc={service.imgSrc}
-            isExpanded={expandedIndex === index} // Check if this card should be expanded
-            onHover={() => handleHover(index)} // Handle hover event
           />
         ))}
       </section>

@@ -1,6 +1,7 @@
 /* Base Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Manrope' sans-serif;
+  font-weight: 600;
   margin: 0;
   padding: 0;
   background-color: #fcf6f6; 
@@ -14,12 +15,19 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #fff;
+  background-color: black;
+  color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 50;
   transition: all 0.3s ease-in-out;
+}
+
+/* Scrolled header styles */
+header.scrolled {
+  background-color: white;
+  color: black;
 }
 
 /* Logo and Brand Name */
@@ -32,17 +40,26 @@ header .logo img {
   width: 80px;
   height: 50px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 20px;
+  background-blend-mode: screen;
+}
+
+header.scrolled .logo img {
   filter: invert(1);
 }
 
+/* Logo Text */
 header .logo h2 {
   margin-left: 0.5rem;
-  font-size: 2rem; /* Default font size */
+  font-size: 2rem;
   font-weight: 700;
-  color: #703cbf;
+  color: white;
   font-family: 'Montserrat', sans-serif;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+header.scrolled .logo h2 {
+  color: inherit;
   background: linear-gradient(90deg, #713d8a, #a51b24);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -52,51 +69,52 @@ header .logo h2 {
 header nav {
   padding-right: 10px;
   display: none; /* Hidden by default for mobile */
-  margin-left: auto; /* Pushes nav to the right */
+  margin-left: auto;
 }
 
 @media (min-width: 900px) {
   header nav {
     display: flex;
-    gap: 2.5rem; /* Space between nav links */
+    gap: 2.5rem;
   }
 
   header nav a {
-    text-decoration: none; /* Remove underline */
-    color: #fff; /* Default text color */
-    transition: color 0.3s; /* Smooth transition */
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
   }
 
   header nav a:hover {
-    color: #0f0; /* Change color on hover */
+    color: #ffa200;
   }
 
   header .logo {
     display: flex;
-    align-items: center; /* Center logo vertically */
+    align-items: center;
   }
 
   header .logo h2 {
     margin-left: 0.5rem;
-    font-size: 1.5rem; /* Adjusted size for visibility */
+    font-size: 1.5rem;
   }
 }
 
-/* Mobile Styles for h2 */
+/* Mobile Styles */
 @media (max-width: 899px) {
   header .logo h2 {
-    font-size: 1.2rem; /* Smaller font size for mobile */
+    font-size: 1.2rem;
   }
-  header .contact-button button{
+
+  header .contact-button button {
     display: none;
   }
-
 }
 
+/* Navigation Links */
 header nav a {
-  color: #4b5563;
+  color: inherit;
   text-decoration: none;
-  font-weight: 500; /* Add font weight */
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
@@ -105,14 +123,9 @@ header nav a:hover {
 }
 
 /* Contact Button */
-header .contact-button {
-  display: flex;
-  gap: 1rem;
-}
-
 header .contact-button button {
   padding: 0.5rem 1.2rem;
-  background-color: #573a3a;
+  background-color: #ffa200;
   color: #f9f4f4;
   border: 2px solid #573a3a;
   border-radius: 12px;
@@ -120,50 +133,68 @@ header .contact-button button {
   transition: all 0.3s ease;
 }
 
-header .contact-button button:hover {
+header.scrolled .contact-button button {
   background-color: #f5f5f8;
   color: rgb(102, 65, 65);
   border-color: rgb(102, 65, 65);
 }
 
-
+header .contact-button button:hover {
+  background-color: #f5f5f8;
+  color: #d97706;
+  border-color: #d97706;
+}
 
 
 .hero {
-  background: url('../public/images/cool-background.png') no-repeat center center/cover;
+  position: relative;
   color: white;
   padding: 80px 20px;
   text-align: center;
+  overflow: hidden;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column; /* Stack h1 and h2 vertically */
+  justify-content: center;
+  text-align: left; /* Align text to the left */
+  width: 100%; /* Ensure it takes full width */
+  align-items: center; /* Center horizontally */
+line-height: 20px;
+}
+
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 10px; /* Add space between h1 and h2 */
+}
+
+.hero-content h2 {
+  font-size: 4.5rem;
+  color: #ffa200;
+}
+.hero-content p{
+  font-size: 1.5rem;
+}
+.hero-content {
   position: relative;
-  overflow: hidden; /* Ensures any overlay or transform stays within bounds */
-  /* Removed hover transition effect */
+  z-index: 1; /* Above the video */
+  text-align: center; /* Center the content inside this container */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
 }
 
-.hero::before {
-  content: "";
+.background-video {
   position: absolute;
-  
-  background: rgba(0, 0, 0, 0.1); /* Increased opacity for better contrast */
-  /* Places the overlay behind the text */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Behind content */
 }
-
-/* Removed hover effect on hero */
-.hero h1,
-.hero p {
-  position: relative; /* Keeps text above the overlay */
-  z-index: 2; /* Ensures text is above the overlay */
-}
-
-.hero h1 {
-  font-size: 2.5rem; /* Adjusts heading size */
-  margin: 0.5em 0; /* Adds spacing for readability */
-}
-
-.hero p {
-  font-size: 1.2rem; /* Sets paragraph size */
-  max-width: 700px; /* Limits width for readability */
-  margin: 0 auto; /* Centers the paragraph block */
-} 
 
 
 
@@ -222,20 +253,50 @@ color: whitesmoke;
 
 /* Our Approach Paragraph */
 .our-approach p {
-  font-size: 1.1rem; /* Standard font size */
+  font-size: 1.3rem; /* Standard font size */
   color: #666; /* Gray text color */
   line-height: 1.6; /* Increase line height for readability */
   flex: 2; /* Wider than the title */
 }
 
+@media (min-width: 780px){
+  .hero-title {
+    line-height: 3rem;
+    text-align: center;
+    
+  }
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
+  .hero-title {
+    line-height: 50px;
+    text-align: center;
+    
+  }
+.hero-content h1 {
+  font-size: 2rem;
+  margin-bottom: 0px; /* Add space between h1 and h2 */
+}
+
+.hero-content h2 {
+  margin-top: 0;
+  font-size: 2.5rem;
+  color: #ffa200;
+}
+
+
+
   .our-approach {
     flex-direction: column; /* Stack elements vertically */
     text-align: center; /* Center text on mobile */
     gap: 20px; /* Reduced gap for mobile */
   }
-
+  .hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 10px; /* Add space between h1 and h2 */
+  }
+  
   .our-approach h2,
   .our-approach p {
     flex: unset; /* Remove flex-grow for stacking */
@@ -263,7 +324,6 @@ color: whitesmoke;
   /* Add underline effect */
   padding-bottom: 10px; /* Padding below the text */
 }
-
 .services {
   justify-content: center; /* Center the service cards */
   display: flex; /* Use flexbox for side-by-side alignment */
@@ -275,12 +335,12 @@ color: whitesmoke;
 /* Service Card Styles */
 .service-card {
   position: relative; /* Position for absolute child elements */
-  height: 600px; /* Fixed height */
+  height: 500px; /* Fixed height */
   width: 200px; /* Initial width for larger screens */
   overflow: hidden; /* Hide overflowing content */
-  border-radius: 100px; /* Rounded corners */
+  border-radius: 50px; /* Rounded corners */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); /* Shadow for card */
-  transition: transform 0.3s; /* Smooth transform transition */
+  transition: width 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth width and transform transition */
   cursor: pointer; /* Pointer cursor */
   display: flex;
   flex-direction: column; /* Stack title vertically */
@@ -288,8 +348,10 @@ color: whitesmoke;
 }
 
 /* Expanded and collapsed states */
-.service-card.expanded {
+.service-card:hover {
   width: 500px; /* Expanded width for larger screens */
+  transform: scale(1.05); /* Scale up the card on hover */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Increase shadow for depth */
 }
 
 /* Image Style */
@@ -307,7 +369,7 @@ color: whitesmoke;
   left: 0;
   right: 0;
   height: 100%; /* Full height */
-  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+  background-color: rgba(0, 0, 0, 0.3); /* Dark overlay for readability */
   color: white;
   display: flex;
   flex-direction: column;
@@ -317,21 +379,23 @@ color: whitesmoke;
 }
 
 /* Service Description: Always show if card is expanded */
-.service-card.expanded .service-description {
+.service-card:hover .service-description {
   opacity: 1; /* Show description when expanded */
+  transition-delay: 0.3s; /* Add a delay before the description shows up */
 }
 
-.service-card.expanded .service-title {
+.service-card:hover .service-title {
   opacity: 0; /* Hide title on expand */
 }
 
 /* Show description on hover */
 .service-card:hover .service-info {
-  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+  background-color: rgb(50, 48, 47); /* Dark overlay for readability */
 }
 
 /* Service Title */
 .service-title {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1); /* Dark shadow */
   margin: 0; /* No margin */
   transform: rotate(270deg); /* Rotate title */
   white-space: nowrap; /* Prevent wrapping */
@@ -346,8 +410,8 @@ color: whitesmoke;
 
 /* Service Description */
 .service-info .service-description {
-  opacity: 0;
-  font-size: 1.5rem;
+  opacity: 0; /* Initially hidden */
+  font-size: 1.2rem;
   text-align: justify;
   color: white;
   padding: 20px;
@@ -357,13 +421,17 @@ color: whitesmoke;
   height: 100px;
   position: absolute;
   z-index: 1;
-  transition: opacity 0.5s ease-in, opacity 0.1s ease-out;
+  transition: opacity 0.5s ease-in-out; /* Smooth fade-in and fade-out transition */
+  transition-delay: 0s; /* No delay for vanishing */
 }
+
 
 /* Show description on hover and hide title */
 .service-card:hover .service-description {
-  opacity: 1;
+  opacity: 1; /* Show description when hovered */
+  transition-delay: 0.2s; /* Delay before showing */
 }
+
 
 .service-card:hover .service-title {
   opacity: 0; /* Ensure it's fully visible */
@@ -385,8 +453,12 @@ color: whitesmoke;
 }
 
 /* Show hover-title only when the card is expanded */
-.service-card.expanded .hover-title {
+.service-card:hover .hover-title {
   opacity: 1; /* Show when expanded */
+}
+
+.service-card:hover .service-info {
+  background: url("../public/images/background_color.jpg") no-repeat center center / cover;
 }
 
 /* Responsive Design */
@@ -404,11 +476,13 @@ color: whitesmoke;
   }
 
   .service-info {
+    background: url("../public/images/background_color.jpg") no-repeat center center / cover;
+
     opacity: 1; /* Ensure service info is visible */
   }
 
   /* Ensure all cards are expanded on mobile */
-  .service-card.expanded {
+  .service-card:hover {
     width: 100%; /* Full width for expanded state */
   }
 
@@ -455,11 +529,14 @@ color: whitesmoke;
 .content-wrapper {
   display: flex;
   flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.2); /* Increased opacity for better contrast */
+
 }
 
 .left-content {
   max-width: 40%;
   padding: 2rem;
+  
 }
 
 .right-content {
@@ -472,13 +549,13 @@ color: whitesmoke;
 
 /* Heading and Paragraph */
 .heading {
-  font-size: 2rem; /* 80% of the left content */
+  font-size: 3rem; /* 80% of the left content */
   font-weight: bold;
   margin-bottom: 1rem;
 }
 
 .paragraph {
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-align: justify;
 }
 
@@ -626,6 +703,10 @@ textarea:focus {
   box-sizing: border-box; /* Include padding in width calculation */
 }
 
+.footer h4{
+  font-size:1.5rem ;
+  color: #dca037;
+}
 .footer-links {
   display: flex;
   justify-content: space-between;
@@ -644,6 +725,7 @@ textarea:focus {
   align-items: flex-start; /* Align items to the start */
 }
 
+
 /* Ensure each section in right-footer has some margin */
 .footer-services, .footer-contact, .footer-social {
   margin-right: 20px; /* Space between each section */
@@ -659,10 +741,11 @@ textarea:focus {
   display: flex; /* Make the link a flex container */
   align-items: center; /* Center icon and text vertically */
 text-decoration: none;
+line-height: 2; 
 }
 
 .footer-contact a:hover {
-  color: #cddef7; /* Change color on hover for better visibility */
+  color: #dca037; /* Change color on hover for better visibility */
 }
 .footer-contact a span {
   margin-left: 0.5rem; /* Add space between the icon and text */
@@ -675,28 +758,31 @@ text-decoration: none;
 
 /* Ensure the color for the social media links is white */
 .footer-social a {
+ text-decoration: none;
   color: white; /* Set social media links to white */
 }
 
 /* Hover color for social media links */
 .footer-social a:hover {
-  color: #2a77ec; /* Change hover color for social media */
+  color: #dca037; /* Change hover color for social media */
 }
 
 
 /* Styles for About, Services, Contact, and Social Sections */
 .footer-about {
-  text-align: justify; /* Align text to the left */
+  text-align: left; /* Align text to the left */
 }
 
 .footer-services ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none;  /* Removes the default bullet points from the list */
+  line-height: 2;   /* Sets the space between lines of text to 1.6 times the font size */
+  padding: 0;         /* Removes default padding around the list */
+  margin: 0;          /* Removes default margin around the list */
 }
 
 .footer-social .social-links {
   display: flex;
+  line-height: 2; 
   gap: 1rem; /* Space between social links */
 }
 
