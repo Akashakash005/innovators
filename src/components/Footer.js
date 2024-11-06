@@ -58,7 +58,7 @@ const Footer = () => (
             >
               Facebook
             </a>
-            <a>Twitter</a>
+            <a href="#">Twitter</a>
             <a
               href="https://www.instagram.com/innovators__nexus"
               target="_blank"
