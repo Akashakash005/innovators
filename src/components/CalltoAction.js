@@ -20,10 +20,10 @@ const ContactForm = () => {
 
     emailjs
       .send(
-        "service_lg67aj4",
-        "template_ems56dp",
+        "service_tpfvwya",
+        "template_ahwymf2",
         formData,
-        "5Bg6X9nUDVeHR5YU5"
+        "ejspucaxOGA1LuWup"
       )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);

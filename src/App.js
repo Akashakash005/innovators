@@ -121,12 +121,12 @@ const Testimonials = () => (
       "Innovator’s Nexus has been a game-changer for our digital presence. From
       strategy to execution, they exceeded our expectations every step of the
       way."
-      <cite> – Satisfied Client</cite>
+      <cite> – Sree Kalaimagal School </cite>
     </blockquote>
     <blockquote>
       "They understand our brand and create content that truly connects with our
       audience. Our engagement has never been higher."
-      <cite> – Happy Client</cite>
+      <cite> – New Tuono Technologies and Services</cite>
     </blockquote>
   </section>
 );

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import ServiceCard from "./ServiceCard"; // Adjust path as needed
 
 const Services = () => {
@@ -37,7 +36,7 @@ const Services = () => {
 
   return (
     <div className="our_services">
-      <h2>services we provide</h2>;
+      <h2>services we provide</h2>
       <section className="services" id="services">
         {services.map((service, index) => (
           <ServiceCard

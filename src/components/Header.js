@@ -19,7 +19,7 @@ export default function Header() {
         </a>
       </nav>
       <div className="contact-button">
-        <button>Contact Us</button>
+        <a href="#cta">Contact us</a>
       </div>
     </header>
   );
