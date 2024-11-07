@@ -15,7 +15,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: black;
+  background-color:black;
   color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
@@ -306,7 +306,6 @@ color: whitesmoke;
 }
 
 /* Services Section */
-/* Services Section */
 /* Container for our services */
 .our_services {
   text-align: center; /* Center align the heading */
@@ -325,6 +324,7 @@ color: whitesmoke;
   /* Add underline effect */
   padding-bottom: 10px; /* Padding below the text */
 }
+
 .services {
   justify-content: center; /* Center the service cards */
   display: flex; /* Use flexbox for side-by-side alignment */
@@ -336,7 +336,7 @@ color: whitesmoke;
 /* Service Card Styles */
 .service-card {
   position: relative; /* Position for absolute child elements */
-  height: 500px; /* Fixed height */
+  height: 450px; /* Fixed height */
   width: 200px; /* Initial width for larger screens */
   overflow: hidden; /* Hide overflowing content */
   border-radius: 50px; /* Rounded corners */
@@ -347,8 +347,6 @@ color: whitesmoke;
   flex-direction: column; /* Stack title vertically */
   justify-content: flex-end; /* Start from bottom */
 }
-
-
 
 /* Image Style */
 .service-image {
@@ -374,7 +372,6 @@ color: whitesmoke;
   transition: opacity 0.3s ease; /* Transition for hover effect */
 }
 
-
 /* Service Title */
 .service-title {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 1); /* Dark shadow */
@@ -383,7 +380,7 @@ color: whitesmoke;
   white-space: nowrap; /* Prevent wrapping */
   opacity: 1; /* Title should always be visible */
   color: rgb(254, 250, 250); /* Title color */
-  font-size: 220%; /* Increase font size to fill the card */
+  font-size: 200%; /* Increase font size to fill the card */
   display: flex; /* Use flexbox for alignment */
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
@@ -391,12 +388,13 @@ color: whitesmoke;
 }
 
 /* Service Description */
-.service-info .service-description {
+.service-description {
+ 
   opacity: 0; /* Initially hidden */
   font-size: 1.2rem;
-  text-align: justify;
+  text-align: left;
   color: white;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -407,67 +405,74 @@ color: whitesmoke;
   transition-delay: 0s; /* No delay for vanishing */
 }
 
-
-
-
 /* Default style: Hide hover-title by default */
 
+/* Desktop Styles */
+@media (min-width: 900px) {
 
-@media (min-width: 900px){
-  /* Expanded and collapsed states */
-.service-card:hover {
-  width: 500px; /* Expanded width for larger screens */
-  transform: scale(1.05); /* Scale up the card on hover */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Increase shadow for depth */
-}
+ 
+  .service-card:hover {
+    width: 500px; /* Expanded width for larger screens */
+    transform: scale(1.05); /* Scale up the card on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Increase shadow for depth */
+  }
+
+  .service-card:hover .service-description {
+    left: 0;
+    opacity: 1; /* Show description on hover */
+    transition-delay: 0.2s; /* Smooth transition for description visibility */
+  }
+
+  .service-card:hover .service-title {
+    opacity: 0; /* Hide the title when hovered */
+  }
+
+  /* Ensure service-info is visible on hover */
+  .service-card:hover .service-info {
+    background: url("../public/images/background_color.jpg") no-repeat center center / cover;
+    background-color: rgb(50, 48, 47); /* Dark overlay for readability */
+  }
+
+  /* Service Description: Ensure description is visible when hovered */
+  .service-card:hover .service-description {
+    opacity: 1;
+    transition-delay: 0.2s;
+  }
+
+  /* Remove hover-title by default, only show on hover */
+  .service-card:hover .hover-title {
+    opacity: 1; /* Show hover-title when hovered */
+  }
+  .service-card:hover .service-description li {
+    opacity: 1; /* Make list items visible */
+  }
+  .service-card:hover .service-description ul{
+    opacity: 1;
+  }
+  .service-description ul {
+    list-style-type: disc; /* Ensure bullet points */
+    padding-left: 25px; /* Space between bullet and text */
+    margin: 0; /* Remove default margin */
+  }
   
-/* Service Description: Always show if card is expanded */
-.service-card:hover .service-description {
-  opacity: 1; /* Show description when expanded */
-  transition-delay: 0.3s; /* Add a delay before the description shows up */
-}
-
-.service-card:hover .service-title {
-  opacity: 0; /* Hide title on expand */
-}
-
-/* Show description on hover */
-.service-card:hover .service-info {
-  background-color: rgb(50, 48, 47); /* Dark overlay for readability */
-}
-  /* Show description on hover and hide title */
-.service-card:hover .service-description {
-  opacity: 1; /* Show description when hovered */
-  transition-delay: 0.2s; /* Delay before showing */
-}
-
-
-.service-card:hover .service-title {
-  opacity: 0; /* Ensure it's fully visible */
-}
-  .service-info .hover-title {
-    white-space: nowrap;
+  .service-description li {
+    font-size: 1.5rem; /* Font size for list items */
+    color: white; /* Text color */
+    margin-bottom: 5px; /* Space between items */
+  }
+  .service-card .hover-title {
     opacity: 0; /* Hidden initially */
     color: rgb(254, 250, 250);
     font-size: 1.7rem;
     display: block;
     height: 100%;
-    max-width: fit-content;
     position: absolute;
-    top: 10px; /* Position at top */
+    top: 40px; /* Position at top */
     transition: opacity 0.3s ease;
     z-index: 3; /* Ensure it's above description */
   }
-  
-  /* Show hover-title only when the card is expanded */
-  .service-card:hover .hover-title {
-    opacity: 1; /* Show when expanded */
-  }
-  
-  .service-card:hover .service-info {
-    background: url("../public/images/background_color.jpg") no-repeat center center / cover;
-  }
 }
+
 /* Mobile Responsive Styles */
 @media (max-width: 900px) {
   .services {
@@ -486,7 +491,7 @@ color: whitesmoke;
   
   /* Expanded state on click */
   .service-card.expanded {
-    min-height:600px; /* Expanded state height */
+    min-height:300px; /* Expanded state height */
     background: url("../public/images/background_color.jpg") no-repeat center center / cover; /* Background on expanded */
   }
 
@@ -520,7 +525,7 @@ color: whitesmoke;
     background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
   }
 
-  .hover-title {
+  .service-card.expanded .service-info .hover-title ,.hover-title {
     display: none; /* Remove hover-title by default */
   }
 
@@ -552,6 +557,18 @@ color: whitesmoke;
   /* Hide service-info on hover for mobile */
   .service-card:hover .service-info {
     opacity: 1; /* Ensure service-info is hidden on hover */
+  }
+
+  .service-description ul {
+    list-style-type: disc; /* Ensure bullet points */
+    padding-left: 20px; /* Space between bullet and text */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .service-description li {
+    font-size: 1rem; /* Font size for list items */
+    color: white; /* Text color */
+    margin-bottom: 5px; /* Space between items */
   }
 
   
