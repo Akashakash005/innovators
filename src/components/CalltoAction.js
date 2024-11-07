@@ -89,7 +89,7 @@ const ContactForm = () => {
                   <input
                     id="mobile"
                     name="mobile"
-                    placeholder="08123456789"
+                    placeholder="0123456789"
                     type="tel"
                     value={formData.mobile}
                     onChange={handleChange}

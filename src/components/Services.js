@@ -1,6 +1,13 @@
+import { useState } from "react";
 import ServiceCard from "./ServiceCard"; // Adjust path as needed
 
 const Services = () => {
+  const [expandedCard, setExpandedCard] = useState(null); // Track the currently expanded card
+
+  const handleCardClick = (index) => {
+    setExpandedCard(expandedCard === index ? null : index); // Toggle card expansion
+  };
+
   const services = [
     {
       title: "Social Media Management",
@@ -44,6 +51,8 @@ const Services = () => {
             title={service.title}
             description={service.description}
             imgSrc={service.imgSrc}
+            isExpanded={expandedCard === index} // Pass the expanded state for each card
+            onClick={() => handleCardClick(index)} // Handle click to expand/collapse
           />
         ))}
       </section>

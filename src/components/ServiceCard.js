@@ -1,10 +1,10 @@
 import React from "react";
 
-const ServiceCard = ({ title, description, imgSrc, isExpanded, onHover }) => {
+const ServiceCard = ({ title, description, imgSrc, isExpanded, onClick }) => {
   return (
     <div
       className={`service-card ${isExpanded ? "expanded" : ""}`}
-      onMouseEnter={onHover}
+      onClick={onClick} // Use click to toggle expansion
     >
       <img src={imgSrc} alt={title} className="service-image" />
       <div className="service-info">
