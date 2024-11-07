@@ -486,7 +486,7 @@ color: whitesmoke;
   
   /* Expanded state on click */
   .service-card.expanded {
-    max-height:700px; /* Expanded state height */
+    min-height:600px; /* Expanded state height */
     background: url("../public/images/background_color.jpg") no-repeat center center / cover; /* Background on expanded */
   }
 
@@ -701,6 +701,9 @@ textarea:focus {
   max-width: 90%;
 }
 
+.heading{
+  font-size: 2.5rem;
+}
   .content-wrapper {
     flex-direction: column; /* Stack content vertically */
   padding: 20px;
