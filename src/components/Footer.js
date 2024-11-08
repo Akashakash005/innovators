@@ -39,13 +39,13 @@ const Footer = () => (
             <span className="ml-2">9488026106</span>
           </a>
           <a
-            href="mailto:youremail@example.com"
+            href="mailto:team.innovatorsnexus@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center text-white hover:text-gray-300"
           >
             <i className="fas fa-envelope"></i>
-            <span className="ml-2">innovators__nexus</span>
+            <span className="ml-2">team.innovatorsnexus@gmail.com</span>
           </a>
         </div>
         <div className="footer-social">
