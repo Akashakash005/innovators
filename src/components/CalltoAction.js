@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    to_name: "Admin", // Replace with the actual recipient's name or leave blank to prompt user
+    to_name: "", // Replace with the actual recipient's name or leave blank to prompt user
     from_name: "",
     email: "",
     mobile: "", // Added mobile number to formData
@@ -13,28 +13,65 @@ const ContactForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    console.log(formData.email);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Sending first email to the admin
     emailjs
       .send(
-        "service_tpfvwya",
-        "template_ahwymf2",
-        formData,
-        "ejspucaxOGA1LuWup"
+        "gmail", // Service ID
+        "admin_mail", // Template ID for admin email
+        {
+          to_name: "Admin", // Admin's name or greeting (optional)
+          from_name: formData.from_name, // User's name from form data
+          user_email: formData.email, // User's email for reference
+          mobile: formData.mobile, // User's mobile (optional)
+          message: formData.message, // Message content from user
+        },
+        // "5Bg6X9nUDVeHR5YU5" // personal
+        "ejspucaxOGA1LuWup" //company
       )
       .then((response) => {
-        console.log("SUCCESS!", response.status, response.text);
+        console.log(
+          "Email to admin sent successfully!",
+          response.status,
+          response.text
+        );
+
+        // After sending to admin, send the confirmation email to the user
+        return emailjs.send(
+          "gmail", // Service ID (same)
+          "template_response_email", // Template ID for the user confirmation email
+          {
+            to_name: formData.from_name, // User's name for personalized greeting
+            user_email: formData.email, // Dynamic "To Email" for user
+            reply_to: "contact@yourcompany.com", // Company's contact email for replies
+            message:
+              "Thank you for reaching out! We will get back to you shortly.",
+          },
+          // "5Bg6X9nUDVeHR5YU5" // personal EmailJS User ID
+          "ejspucaxOGA1LuWup" //company
+        );
+      })
+      .then((response) => {
+        console.log(
+          "Confirmation email to user sent successfully!",
+          response.status,
+          response.text
+        );
         alert("Message sent successfully!");
+
+        // Reset form after both emails are sent
         setFormData({
-          to_name: "Recipient Name",
+          to_name: "",
           from_name: "",
           email: "",
           mobile: "",
           message: "",
-        }); // Reset form
+        });
       })
       .catch((err) => {
         console.error("Failed to send message:", err);
@@ -61,7 +98,6 @@ const ContactForm = () => {
                   <input
                     id="from_name"
                     name="from_name"
-                    placeholder="Your Name"
                     type="text"
                     value={formData.from_name}
                     onChange={handleChange}
@@ -75,7 +111,6 @@ const ContactForm = () => {
                   <input
                     id="email"
                     name="email"
-                    placeholder="Yourname@gmail.com"
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
@@ -89,7 +124,6 @@ const ContactForm = () => {
                   <input
                     id="mobile"
                     name="mobile"
-                    placeholder="0123456789"
                     type="tel"
                     value={formData.mobile}
                     onChange={handleChange}
@@ -103,7 +137,6 @@ const ContactForm = () => {
                   <textarea
                     id="message"
                     name="message"
-                    placeholder="Your message here"
                     value={formData.message}
                     onChange={handleChange}
                     required
