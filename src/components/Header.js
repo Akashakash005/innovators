@@ -4,8 +4,8 @@ export default function Header() {
   return (
     <header>
       <div className="logo">
-        <img alt="Innovator's Nexus Logo" src="/innovator_s_nexus_logo.png" />
-        <h2>Innovator's Nexus</h2>
+        <img alt="Innovator Nexus Logo" src="/innovator_s_nexus_logo.png" />
+        <h2>Innovator Nexus</h2>
       </div>
       <nav>
         <a href="#services" aria-label="Services">
